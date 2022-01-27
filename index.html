@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Manage Attributes</title>
+    <META NAME="Title" CONTENT="View Plan at Level">
+    <META NAME="Author" CONTENT="Autodesk FormIt">
+
+    <!-- for testing shared files locally, use: ../../SharedPluginUtilities/ -->
+    <!-- interface with FormIt -->
+    <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormIt.js"></script>
+    <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/v23_0/FormItInterface.js"></script>
+    <!-- UI and styling -->
+    <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormItPluginUI.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://formit3d.github.io/SharedPluginUtilities/FormItPluginStyling.css">
+    <!-- plugin scripts -->
+    <script type="text/javascript" src="ViewPlanAtLevel_Web.js"></script>
+    <script type="text/javascript">
+        FormItInterface.Initialize(function () {
+
+            // initialize the UI
+            // this must be called from here, to ensure the HTML page is loaded
+            // before scripts try to access the window document
+            ManageAttributes.initializeUI();
+            ManageAttributes.updateUI();
+
+            // on new sketch, update the UI to capture units and photo objects
+            FormItInterface.SubscribeMessage("FormIt.Message.kNewModelRequested", function(msg)
+            {
+                ManageAttributes.updateUI();
+            });
+
+            // on open file, update the UI to capture units and photo objects
+            FormItInterface.SubscribeMessage("FormIt.Message.kLoadComplete", function(msg)
+            {
+                ManageAttributes.updateUI();
+            });
+
+        }); // DOMContentLoaded
+    </script>
+</head>
+<body> 
+</body>
+</html>

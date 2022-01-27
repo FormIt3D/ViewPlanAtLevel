@@ -1,0 +1,11 @@
+{
+    "PluginName": "View Plan at Level",
+    "PluginDescription": "Move the camera to look down at a level in orthographic mode at a particular level to view that floor plan.",
+    "PluginType": "Panel",
+    "Scripts": [ 
+        "PLUGINLOCATION/ManageAttributes_Client.js",
+        "https://formit3d.github.io/SharedPluginUtilities/FormItPluginUtils.js"
+     ],
+    "Panel": "PLUGINLOCATION/index.html",
+    "PanelIcon": "PLUGINLOCATION/img/view_plan_at_level@2x.png"
+}
