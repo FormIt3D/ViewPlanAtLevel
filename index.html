@@ -19,19 +19,19 @@
             // initialize the UI
             // this must be called from here, to ensure the HTML page is loaded
             // before scripts try to access the window document
-            ManageAttributes.initializeUI();
-            ManageAttributes.updateUI();
+            ViewPlanAtLevel.initializeUI();
+            ViewPlanAtLevel.updateUI();
 
             // on new sketch, update the UI to capture units and photo objects
             FormItInterface.SubscribeMessage("FormIt.Message.kNewModelRequested", function(msg)
             {
-                ManageAttributes.updateUI();
+                ViewPlanAtLevel.updateUI();
             });
 
             // on open file, update the UI to capture units and photo objects
             FormItInterface.SubscribeMessage("FormIt.Message.kLoadComplete", function(msg)
             {
-                ManageAttributes.updateUI();
+                ViewPlanAtLevel.updateUI();
             });
 
         }); // DOMContentLoaded
