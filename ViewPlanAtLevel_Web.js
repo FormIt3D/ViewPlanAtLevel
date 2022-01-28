@@ -30,13 +30,19 @@ ViewPlanAtLevel.initializeUI = function()
     contentContainer.appendChild(ViewPlanAtLevel.useSelectedAsZoomTargetCheckbox.element);
 
     // go to plan view at the selected level
-    let submitGoToPlanViewAtLevel = new FormIt.PluginUI.Button('Go To Plan View', function()
+    let goToPlanViewAtLevelButton = new FormIt.PluginUI.Button('Go To Plan View', function()
     {
         let sLevelName = ViewPlanAtLevel.levelsSelectInput.getInput().value;
 
         // do nothing if the level isn't selected
         if (sLevelName == ViewPlanAtLevel.defaultLevelInputOptionText)
         {
+            // show a message
+            FormItInterface.CallMethod("ViewPlanAtLevel.showNoLevelSelectedMessage", { }, function(result)
+            {
+                
+            });
+
             return;
         }
 
@@ -48,7 +54,19 @@ ViewPlanAtLevel.initializeUI = function()
         });
 
     });
-    contentContainer.appendChild(submitGoToPlanViewAtLevel.element);
+    contentContainer.appendChild(goToPlanViewAtLevelButton.element);
+
+    // go to plan view at the selected level
+    let goTo3DViewButton = new FormIt.PluginUI.Button('Back to 3D View', function()
+    {
+
+        FormItInterface.CallMethod("ViewPlanAtLevel.goTo3DView", { }, function(result)
+        {
+
+        });
+
+    });
+    contentContainer.appendChild(goTo3DViewButton.element);
 
     // create the footer
     document.body.appendChild(new FormIt.PluginUI.FooterModule().element);
@@ -57,7 +75,7 @@ ViewPlanAtLevel.initializeUI = function()
 // update the UI
 ViewPlanAtLevel.updateUI = function()
 {
-
+    ViewPlanAtLevel.populateSelectElementWithInSketchLevels(ViewPlanAtLevel.levelsSelectInput);
 }
 
 ViewPlanAtLevel.populateSelectElementWithInSketchLevels = function(selectElement)
