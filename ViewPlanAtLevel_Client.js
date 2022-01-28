@@ -71,7 +71,7 @@ ViewPlanAtLevel.setViewAtLevel = function(args)
     ViewPlanAtLevel.clearNotificationHandles();
     ViewPlanAtLevel.activeNotificationHandle = FormIt.UI.ShowNotification('Now showing: ' + sLevelName, FormIt.NotificationType.Success, 0);
 
-    FormIt.UndoManagement.EndState();
+    FormIt.UndoManagement.EndState("View Plan at Level");
 }
 
 ViewPlanAtLevel.getLevelElevationByName = function(sLevelName)
@@ -102,7 +102,7 @@ ViewPlanAtLevel.goTo3DView = function()
 
 ViewPlanAtLevel.showNoLevelSelectedMessage = function()
 {
-    ViewPlanAtLevel.activeNotificationHandle = FormIt.UI.ShowNotification('Please select a level and try again.', FormIt.NotificationType.Error, 0);
+    ViewPlanAtLevel.activeNotificationHandle = FormIt.UI.ShowNotification('Please choose a level from the list.', FormIt.NotificationType.Error, 0);
 }
 
 ViewPlanAtLevel.clearNotificationHandles = function()
