@@ -22,27 +22,23 @@
             ViewPlanAtLevel.initializeUI();
             ViewPlanAtLevel.updateUI();
 
-            // on new sketch, update the UI to capture units and photo objects
+            // on new sketch, update the UI to clear available levels
             FormItInterface.SubscribeMessage("FormIt.Message.kNewModelRequested", function(msg)
             {
                 ViewPlanAtLevel.updateUI();
             });
 
-            // on open file, update the UI to capture units and photo objects
+            // on open file, update the UI to capture available levels
             FormItInterface.SubscribeMessage("FormIt.Message.kLoadComplete", function(msg)
             {
                 ViewPlanAtLevel.updateUI();
             });
 
-            /*
-            FormItInterface.SubscribeMessage("FormIt.Message.kCameraProjectionTypeChanged", function(msg)
+            // when levels change, update the UI to capture available levels
+            FormItInterface.SubscribeMessage("FormIt.Message.kLevelManagerChanged", function(msg)
             {
-                FormItInterface.CallMethod("ViewPlanAtLevel.clearNotificationHandles", { }, function(result)
-                {
-
-                });
+                ViewPlanAtLevel.updateUI();
             });
-            */
 
         }); // DOMContentLoaded
     </script>
