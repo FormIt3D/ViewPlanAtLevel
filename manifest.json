@@ -1,6 +1,6 @@
 {
     "PluginName": "View Plan at Level",
-    "PluginDescription": "Move the camera to look down at a level in orthographic mode at a particular level to view that floor plan.",
+    "PluginDescription": "Go to Top View at a given level elevation and zoom to the current selection to easily create building plans, detail plans, and site plans.",
     "PluginType": "Panel",
     "Scripts": [ 
         "PLUGINLOCATION/ViewPlanAtLevel_Client.js",
