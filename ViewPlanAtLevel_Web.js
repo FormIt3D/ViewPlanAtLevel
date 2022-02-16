@@ -30,7 +30,7 @@ ViewPlanAtLevel.initializeUI = function()
     contentContainer.appendChild(ViewPlanAtLevel.useSelectedAsZoomTargetCheckbox.element);
 
     // go to plan view at the selected level
-    let goToPlanViewAtLevelButton = new FormIt.PluginUI.Button('Go To Plan View', function()
+    let goToPlanViewAtLevelButton = new FormIt.PluginUI.Button('Go to Plan View', function()
     {
         let sLevelName = ViewPlanAtLevel.levelsSelectInput.getInput().value;
 
